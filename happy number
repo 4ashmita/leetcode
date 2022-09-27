@@ -1,0 +1,19 @@
+class Solution {
+    public int digits(int n){
+        int total = 0;
+        while(n > 0){
+            int d = n%10;
+            n = n/10;
+            total += d*d;
+        }
+        return total;
+    }
+    public boolean isHappy(int n) {
+        Set<Integer> num = new HashSet<>();
+        while(n != 1 && !num.contains(n)){
+            num.add(n);
+            n = digits(n);
+        }
+        return n == 1;
+    }
+}
